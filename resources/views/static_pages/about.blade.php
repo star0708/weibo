@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Weibo App</title>
+  @extends('layouts.default')
+  <title>@yield('title', '关于')</title>
 </head>
 <body>
-<h1>关于</h1>
+@section('content')
+  <h1>关于</h1>
+@stop
 </body>
 </html>
