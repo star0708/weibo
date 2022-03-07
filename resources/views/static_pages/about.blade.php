@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  @extends('layouts.default')
-  <title>@yield('title', '关于')</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('title', '关于')
 @section('content')
   <h1>关于</h1>
 @stop
-</body>
-</html>

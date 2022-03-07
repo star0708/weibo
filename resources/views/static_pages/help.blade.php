@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  @extends('layouts.default')
-  <title>@yield('title', '帮助')</title>
-</head>
-<body>
+@extends('layouts.default')
+@section('title','帮助')
+
 @section('content')
-  <h1>帮助</h1>
+  <h1>帮助页</h1>
 @stop
-</body>
-</html>
