@@ -20,7 +20,7 @@ class SessionController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::attempt($validator)) {
+        if (Auth::attempt($validator, $request->has('remember'))) {
             session()->flash('success', '欢迎回来！');
             // Auth::user() 获取当前登录的用户信息
             return redirect()->route('users.show', [Auth::user()]);
