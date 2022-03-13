@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
     public function create()
     {
         return view('session.create');
@@ -22,8 +30,9 @@ class SessionController extends Controller
 
         if (Auth::attempt($validator, $request->has('remember'))) {
             session()->flash('success', '欢迎回来！');
-            // Auth::user() 获取当前登录的用户信息
-            return redirect()->route('users.show', [Auth::user()]);
+            // 跳转至用户上次访问的页面
+            $fallback = route('users.show', Auth::user());
+            return redirect()->intended($fallback);
         } else {
             session()->flash('danger', '很抱歉，您的邮箱和密码不匹配');
             return redirect()->back()->withInput();
