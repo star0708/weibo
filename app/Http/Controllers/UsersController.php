@@ -58,14 +58,14 @@ class UsersController extends Controller
     public function edit(User $user)
     {
         // 设置访问权限
-//        $this->authorize('update', $user);
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
     public function update(User $user, Request $request)
     {
         // 设置访问权限
-//        $this->authorize('update', $user);
+        $this->authorize('update', $user);
 
         $this->validate($request,[
             'name' => 'required|max:50',
